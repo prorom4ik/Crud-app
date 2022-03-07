@@ -39,4 +39,9 @@ public class UserDaoImp implements UserDao {
         userToUpdate.setAge(updatedUser.getAge());
         entityManager.flush();
     }
+
+    @Override
+    public User findUserById(long id) {
+        return entityManager.find(User.class, id);
+    }
 }
