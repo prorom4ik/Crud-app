@@ -9,36 +9,32 @@ import ru.torop.model.User;
 import java.util.List;
 
 @Service
+@Transactional
 public class UserServiceImp implements UserService {
 
     @Autowired
     private UserDao userDao;
 
-    @Transactional
     @Override
     public void addUser(User user) {
         userDao.addUser(user);
     }
 
-    @Transactional
     @Override
     public List<User> listUsers() {
         return userDao.listUsers();
     }
 
-    @Transactional
     @Override
     public void deleteUser(long id) {
         userDao.deleteUser(id);
     }
 
-    @Transactional
     @Override
-    public void updateUser(long id, User user) {
-        userDao.updateUser(id, user);
+    public void updateUser(User user) {
+        userDao.updateUser(user);
     }
 
-    @Transactional
     @Override
     public User findUserById(long id) {
         return userDao.findUserById(id);
